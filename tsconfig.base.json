@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@black-bird/orders": ["libs/orders/src/index.ts"],
+      "@black-bird/products": ["libs/products/src/index.ts"],
+      "@black-bird/ui": ["libs/ui/src/index.ts"],
+      "@black-bird/users": ["libs/users/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
