@@ -16,7 +16,7 @@ export class CategoryFormComponent implements OnInit {
   categoryForm: FormGroup = this.fb.group({
     name: ['', Validators.required],
     icon: ['', Validators.required],
-    color: ['']
+    color: ['#fff']
   });
 
   constructor(
@@ -45,6 +45,10 @@ export class CategoryFormComponent implements OnInit {
     }
   }
 
+  onCancel() {
+    this.location.back();
+  }
+
   private _updateCategory(id: string, cat: Category) {
     this.categoriesService.updateCategory(id, cat).subscribe({
       next: (res) => {
@@ -52,7 +56,7 @@ export class CategoryFormComponent implements OnInit {
           this.messageService.add({
             severity: 'success',
             summary: 'Success',
-            detail: 'Category updated successfuly.'
+            detail: `Category ${res.name} updated successfuly.`
           });
         this.location.back();
       },
@@ -62,7 +66,7 @@ export class CategoryFormComponent implements OnInit {
           summary: 'Error',
           detail: 'Not able to create category!'
         })
-    })
+    });
   }
 
   private _addCategory(cat: Category) {
@@ -72,7 +76,7 @@ export class CategoryFormComponent implements OnInit {
           this.messageService.add({
             severity: 'success',
             summary: 'Success',
-            detail: 'Category created successfuly'
+            detail: `Category ${res.name} created successfuly`
           });
         this.location.back();
       },

@@ -15,11 +15,7 @@
               (click)="onSubmit()"
             >
             </p-button>
-            <p-button
-              label="Cancel"
-              icon="pi pi-arrow-circle-left"
-              styleClass="p-button-secondary"
-            >
+            <p-button label="Cancel" icon="pi pi-arrow-circle-left" styleClass="p-button-secondary" (click)="onCancel()">
             </p-button>
           </div>
         </p-toolbar>
@@ -38,9 +34,7 @@
                 formControlName="name"
                 class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
               />
-              <small
-                class="p-error"
-                *ngIf="categoryForm.get('name').invalid && isSubmitted"
+              <small class="p-error" *ngIf="categoryForm.get('name').invalid && isSubmitted"
                 >Name is required!</small
               >
             </div>
@@ -53,13 +47,14 @@
                 formControlName="icon"
                 class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
               />
-              <small
-                class="p-error"
-                *ngIf="categoryForm.get('icon').invalid && isSubmitted"
+              <small class="p-error" *ngIf="categoryForm.get('icon').invalid && isSubmitted"
                 >Icon name is required!</small
               >
             </div>
-            <!-- <p-colorPicker formControlName="color"></p-colorPicker> -->
+            <div class="field col">
+              <label for="color">Color: </label><br />
+              <p-colorPicker formControlName="color"></p-colorPicker>
+            </div>
           </div>
         </form>
       </div>
