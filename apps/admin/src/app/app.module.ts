@@ -11,6 +11,10 @@ import { ShellComponent } from './shared/shell/shell.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { CategoryListComponent } from './pages/categories/category-list/category-list.component';
 import { CategoryFormComponent } from './pages/categories/category-form/category-form.component';
+import { ProductsListComponent } from './pages/products/products-list/products-list.component';
+import { ProductFormComponent } from './pages/products/product-form/product-form.component';
+import { UserListComponent } from './pages/users/user-list/user-list.component';
+import { UserFormComponent } from './pages/users/user-form/user-form.component';
 
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -23,6 +27,13 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { DropdownModule } from 'primeng/dropdown';
+import { EditorModule } from 'primeng/editor';
+import { TagModule } from 'primeng/tag';
+import { InputMaskModule } from 'primeng/inputmask';
 
 const UX_MODULES = [
   CardModule,
@@ -32,14 +43,20 @@ const UX_MODULES = [
   TableModule,
   InputTextModule,
   ColorPickerModule,
-  ToastModule
+  ToastModule,
+  InputNumberModule,
+  InputTextareaModule,
+  InputSwitchModule,
+  DropdownModule,
+  EditorModule,
+  TagModule,
+  InputMaskModule
 ];
 
 const routes: Routes = [
   {
     path: '',
     component: ShellComponent,
-    // pathMatch: 'full',
     children: [
       {
         path: 'dashboard',
@@ -57,6 +74,30 @@ const routes: Routes = [
         path: 'categories/form/:id',
         component: CategoryFormComponent
       },
+      {
+        path: 'products',
+        component: ProductsListComponent
+      },
+      {
+        path: 'products/form',
+        component: ProductFormComponent
+      },
+      {
+        path: 'products/form/:id',
+        component: ProductFormComponent
+      },
+      {
+        path: 'users',
+        component: UserListComponent
+      },
+      {
+        path: 'users/form',
+        component: UserFormComponent
+      },
+      {
+        path: 'users/form/:id',
+        component: UserFormComponent
+      }
     ]
   }
 ];
@@ -68,7 +109,11 @@ const routes: Routes = [
     ShellComponent,
     SidebarComponent,
     CategoryListComponent,
-    CategoryFormComponent
+    CategoryFormComponent,
+    ProductsListComponent,
+    ProductFormComponent,
+    UserListComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,

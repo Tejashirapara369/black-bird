@@ -20,7 +20,6 @@ export class CategoryListComponent implements OnInit {
   }
 
   deleteCategory(id: string) {
-    console.log('id', id)
     this.confirmationService.confirm({
       message: 'Are you sure that you want to delete this category?',
       header: 'Delete Category',

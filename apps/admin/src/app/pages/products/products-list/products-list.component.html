@@ -1,0 +1,79 @@
+<div class="admin-page">
+  <p-card header="Products" subheader="List of all Products">
+    <div class="p-grid">
+      <div class="p-col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left">
+            <p-button label="New" icon="pi pi-plus" styleClass="p-button-success" routerLink="form">
+            </p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="p-grid mt-2">
+      <div class="p-col-12">
+        <p-table
+          [value]="products"
+          responsiveLayout="scroll"
+          styleClass="p-datatable-gridlines"
+          [rows]="10"
+          [paginator]="true"
+          [showCurrentPageReport]="true"
+          [rowsPerPageOptions]="[10, 25, 50]"
+          responsiveLayout="scroll"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+              <th>Image</th>
+              <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
+              <th pSortableColumn="countInStock">Stock <p-sortIcon field="stock"></p-sortIcon></th>
+              <th pSortableColumn="category">
+                Category <p-sortIcon field="category"></p-sortIcon>
+              </th>
+              <th pSortableColumn="dateCreated">
+                Created at <p-sortIcon field="dateCreated"></p-sortIcon>
+              </th>
+              <th>Actions</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product>
+            <tr>
+              <td>{{ product.name }}</td>
+              <td>
+                <!-- {{ product.image }} -->
+                <img [src]="product.image" width="100px" />
+              </td>
+              <td>
+                {{ product.price }}
+              </td>
+              <td>
+                {{ product.countInStock }}
+              </td>
+              <td>
+                {{ product.category?.name }}
+              </td>
+              <td>
+                {{ product.dateCreated | date: 'short' }}
+              </td>
+              <td>
+                <p-button
+                  icon="pi pi-pencil"
+                  styleClass="p-button-primary mr-2"
+                  [routerLink]="['form', product.id]"
+                >
+                </p-button>
+                <p-button
+                  icon="pi pi-trash"
+                  styleClass="p-button-danger"
+                  (click)="deleteProduct(product.id)"
+                ></p-button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </p-card>
+</div>
