@@ -16,7 +16,7 @@ export class CategoriesService {
   }
 
   getCategoryById(catId: string) {
-    return this.http.get<Category[]>(`${this.apiURL}/${catId}`);
+    return this.http.get<Category>(`${this.apiURL}/${catId}`);
   }
 
   createCategory(category: Category) {

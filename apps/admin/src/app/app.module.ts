@@ -15,6 +15,8 @@ import { ProductsListComponent } from './pages/products/products-list/products-l
 import { ProductFormComponent } from './pages/products/product-form/product-form.component';
 import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
+import { OrderListComponent } from './pages/orders/order-list/order-list.component';
+import { OrderDetailComponent } from './pages/orders/order-detail/order-detail.component';
 
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -34,6 +36,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
 import { TagModule } from 'primeng/tag';
 import { InputMaskModule } from 'primeng/inputmask';
+import { FieldsetModule } from 'primeng/fieldset';
 
 const UX_MODULES = [
   CardModule,
@@ -50,7 +53,8 @@ const UX_MODULES = [
   DropdownModule,
   EditorModule,
   TagModule,
-  InputMaskModule
+  InputMaskModule,
+  FieldsetModule
 ];
 
 const routes: Routes = [
@@ -97,6 +101,14 @@ const routes: Routes = [
       {
         path: 'users/form/:id',
         component: UserFormComponent
+      },
+      {
+        path: 'orders',
+        component: OrderListComponent
+      },
+      {
+        path: 'orders/:id',
+        component: OrderDetailComponent
       }
     ]
   }
@@ -113,7 +125,9 @@ const routes: Routes = [
     ProductsListComponent,
     ProductFormComponent,
     UserListComponent,
-    UserFormComponent
+    UserFormComponent,
+    OrderListComponent,
+    OrderDetailComponent
   ],
   imports: [
     BrowserModule,
