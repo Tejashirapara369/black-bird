@@ -43,4 +43,8 @@ export class UserService {
       };
     });
   }
+
+  getTotalUsers() {
+    return this.http.get<{ userCount: number }>(this.apiURL + '/count');
+  }
 }

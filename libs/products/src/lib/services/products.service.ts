@@ -30,4 +30,8 @@ export class ProductsService {
   deleteProduct(productId: string) {
     return this.http.delete<unknown>(`${this.apiURL}/${productId}`);
   }
+
+  getTotalProduct() {
+    return this.http.get<{ productCount: number }>(`${this.apiURL}/count`);
+  }
 }
